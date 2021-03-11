@@ -1,1 +1,1 @@
-du -h ./out*
+du -h ./results
