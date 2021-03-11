@@ -4,7 +4,7 @@ if [[ -z "$OCM_ACCESS_TOKEN" ]]; then
 fi
 
 if [[ -z "$SLEEP_IN_MINUTES" ]]; then
-    SLEEP_IN_MINUTES=1
+    SLEEP_IN_MINUTES=10
     echo "Setting SLEEP_IN_MINUTES to default (${SLEEP_IN_MINUTES} minute(s))"
 fi
 
