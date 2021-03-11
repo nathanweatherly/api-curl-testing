@@ -1,1 +1,1 @@
-caffeinate -m ./test-ocm-calls.sh
+caffeinate -s ./test-ocm-calls.sh
