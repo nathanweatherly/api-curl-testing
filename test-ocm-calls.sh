@@ -19,7 +19,6 @@ BASE_RESULTS_DIR_PATH="$(dirname "${BASH_SOURCE[0]}")/results"
 OUTPUT_DIR_PATH="$BASE_RESULTS_DIR_PATH/outputs-starting-at-$(timestamp)"
 
 REFRESH_TOKEN_FILE_NAME="refresh_token_response.json"
-CLUSTERS_RESPONSE_FILE_NAME="clusters_response.json"
 SUBSCRIPTIONS_RESPONSE_FILE_NAME="subscriptions_response.json"
 
 mkdir $OUTPUT_DIR_PATH
@@ -43,11 +42,6 @@ do
     echo $REFRESH_TOKEN_RESPONSE > $START_TIME/$REFRESH_TOKEN_FILE_NAME
 
     REFRESH_TOKEN=$(echo "$REFRESH_TOKEN_RESPONSE" | jq -r .access_token)
-
-    CLUSTERS_RESPONSE=$(curl --location --request GET 'https://api.openshift.com/api/clusters_mgmt/v1/clusters' \
-    --header "Authorization: Bearer $REFRESH_TOKEN")
-
-    echo $CLUSTERS_RESPONSE > $START_TIME/$CLUSTERS_RESPONSE_FILE_NAME
 
     SUBSCRIPTIONS_RESPONSE=$(curl --location --request GET 'https://api.openshift.com/api/accounts_mgmt/v1/subscriptions' \
     --header "Authorization: Bearer $REFRESH_TOKEN")
